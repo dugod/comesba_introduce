@@ -1,0 +1,23 @@
+body {
+  padding: 0 10%;
+  margin-top: 2rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.border-box{
+  border: none;
+  border-radius: 10px;
+  background: var(--dark-gray);
+  color: white;
+}
+
+:root {
+  --main-color: #445964;
+  --dark-gray: #263138;
+  --logo-background: #343434;
+  --soft-grey: #E9E9E9;
+  --btn: #515151;
+}

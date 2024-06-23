@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/css/map.css" />
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e43efe875a94a684749f0dd1edc3f595"></script>
+    <title>지도</title>
+</head>
+<body>
+    <div class="map-page">
+        <header class="map__header">
+            <img src="../../images/comsebalogo.svg" alt="컴세바로고" />
+            <div class="map__header__right">
+                <a href="/">홈 페이지</a>
+                <a href="/guest">방명록</a>
+            </div>
+        </header>
+        <div class="map__body">
+            <div class="map__body__left">
+                <div id="map" style="width: 100%; height: 100%;"></div>
+            </div>
+            <div class="map__body__right">
+                <p>INCHEON COMSEBA</p>
+                <p>컴세바 써니랩학원인천지점</p>
+                <p>인천 연수구 송도동 (해돋이로172번길) 42 B.M빌딩 201호~204호</p>
+                <p>CALL : 0507. 1415. 6624 / 010. XXXX. XXXX</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            mapOption = { 
+                center: new kakao.maps.LatLng(37.39783, 126.6478), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            };
+        
+        var map = new kakao.maps.Map(mapContainer, mapOption);
+        
+        // 마커가 표시될 위치입니다 
+        var markerPosition  = new kakao.maps.LatLng(37.39783, 126.6478);
+        
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        });
+        
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map);
+        
+        var iwContent = '<div style="padding:5px;">컴세바송도점 <br><a href="https://map.kakao.com/link/map/컴세바 송도지점,37.39783, 126.6478" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/컴세바 송도지점, 37.39783, 126.6478" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+            iwPosition = new kakao.maps.LatLng(37.39783, 126.6478); //인포윈도우 표시 위치입니다
+        
+        // 인포윈도우를 생성합니다
+        var infowindow = new kakao.maps.InfoWindow({
+            position : iwPosition, 
+            content : iwContent 
+        });
+          
+        // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+        infowindow.open(map, marker); 
+    </script>
+</body>
+</html>
