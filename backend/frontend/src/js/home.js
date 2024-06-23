@@ -60,10 +60,12 @@ const makeSkillDescription = () => {
         const curStep = document.querySelector(
           `.home__learn-skills__flex-box .step${idx + 1} p:nth-child(2)`
         );
-  
+        
         curStep.textContent = comment;
     });
 };
+
+makeSkillDescription();
 
 const skillBox = document.querySelectorAll(".home__learn-skills__skill-box");
   
