@@ -37,7 +37,7 @@ app.post("/createcomment", (req, res) => {
   const data = req.body;
   console.log(data);
 
-  const db = JSON.parse(fs.readFileSync("Db.json"));
+  const db = JSON.parse(fs.readFileSync("DB.json"));
   db.commentList.unshift(data);
   fs.writeFileSync("DB.json", JSON.stringify(db));
   
@@ -46,4 +46,4 @@ app.post("/createcomment", (req, res) => {
 
 app.get("/map", (req,res) => {
   res.sendFile(__dirname + "/frontend/src/html/map.html");
-})
+});
